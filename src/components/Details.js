@@ -1,7 +1,12 @@
-function Details (){
+// import { BsArrowRightCircle } from 'react-icons/fa';
+    
+    function Details (){
     return (
-        <p> Dtls </p>
+        <p> 
+             Details
+             {/* <BsArrowRightCircle /> */}
+        </p>
     )
 }
 
-export default Details
+export default Details;
