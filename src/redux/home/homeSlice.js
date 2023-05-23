@@ -3,35 +3,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const url = 'https://api.artic.edu/api/v1/artworks';
 
-const initialState = {
-  artworks: [],
-  isLoading: false,
-  error: null,
-};
-
 export const fetchArtworks = createAsyncThunk('artworks/fetchArtworks', async () => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    return data;
-    // return data.map((artwork) => ({
-    //   id: artwork.id,
-    //   title: artwork.title,
-    //   artist_display: artwork.artist_display,
-    //   date: artwork.date_display,
-    //   image: artwork.images[0],
-    // }));
+    console.log(data.data);
+    return data.data;
   } catch (error) {
     return (error.message);
   }
-  // const response = axios.fetch(url);
-  // const test = (await response).data;
-  // return test.data;
 });
 
 const ArtworksSlice = createSlice({
   name: 'artworks',
-  initialState,
+  initialState: {
+    artworks: [],
+    isLoading: false,
+    error: null,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchArtworks.pending, (state) => {
@@ -39,10 +28,10 @@ const ArtworksSlice = createSlice({
       })
       .addCase(fetchArtworks.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.Artworks = action.payload;
+        state.artworks = action.payload;
         state.error = null;
       })
-      .addCase(fetchArtworks, (state, action) => {
+      .addCase(fetchArtworks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

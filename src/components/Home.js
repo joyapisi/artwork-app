@@ -4,20 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import { FaChevronCircleLeft } from 'react-icons/fa';
 import { fetchArtworks } from '../redux/home/homeSlice';
-// import Details from './Details';
+import '../styles/home.css';
 
 function Home() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { artworks, isLoading } = useSelector((store) => store.Artworks);
+  const { artworks, isLoading } = useSelector((store) => store.artworks);
   const [searchArtwork, setSearchArtwork] = useState('');
-  // const [clickedArtwork, setclickedArtwork] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchArtworks());
   }, [dispatch]);
 
-  const filterArtworks = artworks.filter((Artwork) => Artwork.artist_display
+  const filterArtworks = artworks.filter((artwork) => artwork.artist_display
     .toLowerCase()
     .includes(searchArtwork.toLocaleLowerCase()));
 
@@ -25,8 +24,8 @@ function Home() {
     return <h5>Artworks Loading...</h5>;
   }
 
-  const handleClickedArtwork = (Artwork) => {
-    navigate(`/Details/${Artwork.title.toLowerCase()}`, { state: { Artwork } });
+  const handleClickedArtwork = (artwork) => {
+    navigate(`/Details/${artwork.title.toLowerCase()}`, { state: { artwork } });
   };
 
   return (
@@ -45,27 +44,37 @@ function Home() {
         </label>
       </form>
 
-      <div className="artwork-container">
-        {filterArtworks.map((Artwork) => (
+      <div>
+        {artworks.map((artwork) => (
+          <div key={artwork.id}>
+            <h2>{artwork.title}</h2>
+            <h2>{artwork.artist_display}</h2>
+            <h2>{artwork.dimensions}</h2>
+            <h2>{artwork.date_display}</h2>
+            <h2>{artwork.place_of_origin}</h2>
+          </div>
+        ))}
+        {filterArtworks.map((artwork) => (
           <div
             className="Artwork-card"
-            key={Artwork.id}
-            onClick={() => { handleClickedArtwork(Artwork); }}
+            key={artwork.id}
+            onClick={() => { handleClickedArtwork(artwork); }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                handleClickedArtwork(Artwork);
+                handleClickedArtwork(artwork);
               }
             }}
             role="button"
             tabIndex={0}
           >
-            <h2 className="symbol">{Artwork.symbol}</h2>
+
+            <h2 className="symbol">{artwork.symbol}</h2>
             <p className="change">
-              {Artwork.percent_change_1h < 0 ? (
+              {artwork.percent_change_1h < 0 ? (
                 <>
                   <FaChevronCircleLeft style={{ color: 'red' }} />
                   <span style={{ color: 'red' }}>
-                    {Math.abs(Artwork.percent_change_1h)}
+                    {Math.abs(artwork.percent_change_1h)}
                     %
                   </span>
                 </>
@@ -73,7 +82,7 @@ function Home() {
                 <>
                   <BsArrowRightCircle style={{ color: 'green' }} />
                   <span style={{ color: 'green' }}>
-                    {Artwork.percent_change_1h}
+                    {artwork.percent_change_1h}
                     %
                   </span>
                 </>
@@ -83,6 +92,7 @@ function Home() {
         ))}
       </div>
     </>
+
   );
 }
 

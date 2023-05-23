@@ -3,8 +3,8 @@ import ArtworksReducer from './home/homeSlice';
 
 const store = configureStore({
   reducer: {
-    Artworks: ArtworksReducer,
-
+    artworks: ArtworksReducer,
+    // ...other reducers if you have them
   },
 });
 
