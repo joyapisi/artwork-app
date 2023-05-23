@@ -1,5 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import ArtworksReducer from './home/homeSlice';
 
-export const store = configureStore({
-  reducer: {},
-})
+const store = configureStore({
+  reducer: {
+    artworks: ArtworksReducer,
+    // ...other reducers if you have them
+  },
+});
+
+export default store;
