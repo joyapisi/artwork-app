@@ -1,7 +1,7 @@
-function EachItem (){
-    return (
-        <p> EachItem </p>
-    )
+function EachItem() {
+  return (
+    <p> EachItem </p>
+  );
 }
 
 export default EachItem;

@@ -9,14 +9,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <div className="App">
-      <Navgtn/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Details" element={<Details />} />
-      </Routes>
-    </div>
-    </BrowserRouter>
+        <div className="App">
+          <Navgtn />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Details" element={<Details />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }

@@ -1,7 +1,7 @@
-function ItemsList (){
-    return (
-        <p> ItemsList </p>
-    )
+function ItemsList() {
+  return (
+    <p> ItemsList </p>
+  );
 }
 
 export default ItemsList;

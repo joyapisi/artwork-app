@@ -1,38 +1,52 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from 'axios';
 
 const url = 'https://api.artic.edu/api/v1/artworks';
 
 const initialState = {
-  Artworks: [],
+  artworks: [],
   isLoading: false,
   error: null,
 };
 
-export const getArtworks = createAsyncThunk('Artworks/getArtworks', async () => {
-  const response = axios.get(url);
-  const test = (await response).data;
-  return test.data;
+export const fetchArtworks = createAsyncThunk('artworks/fetchArtworks', async () => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+    // return data.map((artwork) => ({
+    //   id: artwork.id,
+    //   title: artwork.title,
+    //   artist_display: artwork.artist_display,
+    //   date: artwork.date_display,
+    //   image: artwork.images[0],
+    // }));
+  } catch (error) {
+    return (error.message);
+  }
+  // const response = axios.fetch(url);
+  // const test = (await response).data;
+  // return test.data;
 });
 
-const currencySlice = createSlice({
-  name: 'Artworks',
+const ArtworksSlice = createSlice({
+  name: 'artworks',
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getArtworks.pending, (state) => {
+      .addCase(fetchArtworks.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getArtworks.fulfilled, (state, action) => {
+      .addCase(fetchArtworks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.Artworks = action.payload;
         state.error = null;
       })
-      .addCase(getArtworks, (state, action) => {
+      .addCase(fetchArtworks, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
   },
 });
 
-export default currencySlice.reducer;
+export default ArtworksSlice.reducer;
