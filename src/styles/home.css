@@ -8,6 +8,7 @@
   font-family: 'Roboto', sans-serif;
   margin: 0;
   border: 0;
+  background-color: rgba(22, 81, 190, 0.699);
 }
 
 .flex {
@@ -34,6 +35,10 @@
   font-size: 12px;
 }
 
+form input, input::placeholder, .each-artwork {
+  color: #fff;
+}
+
 .header form .search {
   width: 120px;
 }
@@ -43,18 +48,19 @@
 }
 
 .artwork-wrapper {
-  display: grid;
-  grid-gap: 0;
-  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  /* flex-wrap: wrap; */
   gap: 10px;
-  grid-template-columns: auto auto;
-  padding: 2px;
+  padding: 10px;
+}
+
+.tbody :nth-child(odd) {
+  background-color: rgba(14, 67, 165, 0.699);
 }
 
 .each-artwork {
   flex-direction: column;
-  background-image: linear-gradient(rgb(0, 127, 166), rgb(0, 175, 185));
-  color: #fff;
   padding: 10px;
   gap: 10px;
   text-align: right;

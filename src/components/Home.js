@@ -43,21 +43,23 @@ function Home() {
           <input className="submt-search" type="submit" />
         </form>
       </div>
-      <div className="artwork-wrapper">
-        {filterArtworks.map((artwork) => (
-          <div
-            key={artwork.id}
-            onClick={() => { handleClickedArtwork(artwork); }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
+      <table className="artwork-wrapper">
+        <tbody>
+          {filterArtworks.map((artwork) => (
+            <tr
+              className="flex each-artwork"
+              key={artwork.id}
+              onClick={() => {
                 handleClickedArtwork(artwork);
-              }
-            }}
-            role="button"
-            tabIndex={0}
-          >
-
-            <div className="flex each-artwork">
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleClickedArtwork(artwork);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               <div className="right-arrow">
                 <button
                   style={{ color: 'white' }}
@@ -67,14 +69,12 @@ function Home() {
                   <BsArrowRightCircle />
                 </button>
               </div>
-
               <p>{artwork.title}</p>
               <p>{artwork.date_display}</p>
-            </div>
-
-          </div>
-        ))}
-      </div>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
