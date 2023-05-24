@@ -58,9 +58,15 @@
   padding: 10px;
   gap: 10px;
   text-align: right;
+  height: 170px;
 }
 
 .right-arrow {
   align-self: flex-end;
   margin-bottom: 20px;
+  
+}
+
+.right-arrow button {
+  background-color: transparent;
 }

@@ -1,13 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BiArrowBack } from 'react-icons/bi';
-import { FaChevronDown, FaChevronUp, FaBitcoin } from 'react-icons/fa';
-import { GoChevronLeft } from 'react-icons';
+import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
 import '../styles/details.css';
 
 const Details = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { artwork } = artwork.artist_display;
+  const { artwork } = location.state;
 
   const handleBackArrow = () => {
     navigate('/');
@@ -26,35 +24,36 @@ const Details = () => {
         role="button"
         tabIndex={0}
       >
-        <GoChevronLeft size={32} />
+        <FaRegArrowAltCircleLeft size={32} />
       </div>
       <div className="header">
         <h4>{artwork.artist_display}</h4>
       </div>
 
-      <div className="details-container" key={artwork.id}>
-        <h3 className="details-title">coin details:</h3>
+      <div
+        className="details-wrapper"
+        key={artwork.id}
+      >
+        <h3 className="details-title">Artworks Details</h3>
         <div>
-          <p className="market-cap details">
-            market cap: $
-            {Number(artwork.market_cap_usd).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+          <p className="place_of_origin">
+            Place of Origin:
+            {artwork.place_of_origin}
           </p>
-          <p className="volume details">
-            volume(24h): $
-            {Number(artwork.volume24a).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+          <p className="dimensions">
+            Dimensions:
+            {artwork.dimensions}
           </p>
-          <p className="total-supply details">
-            total supply:
-            {' '}
-            {Number(artwork.tsupply).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            })}
+          <p className="medium_used">
+            Medium Used:
+            {artwork.medium_display}
           </p>
-          <p className="change details">
+          <p className="medium_used">
+            Medium Used:
+            {artwork.category_titles}
+          </p>
+
+          {/* <p className="change details">
             1h %:
             {' '}
             {artwork.percent_change_1h < 0 ? (
@@ -128,7 +127,7 @@ const Details = () => {
             {Number(artwork.price_usd).toLocaleString(undefined, {
               maximumFractionDigits: 2,
             })}
-          </p>
+          </p> */}
         </div>
       </div>
     </>

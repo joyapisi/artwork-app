@@ -15,7 +15,7 @@ function Home() {
     dispatch(fetchArtworks());
   }, [dispatch]);
 
-  const filterArtworks = artworks.filter((artwork) => artwork.artist_display
+  const filterArtworks = artworks.filter((artwork) => artwork.title
     .toLowerCase()
     .includes(searchArtwork.toLocaleLowerCase()));
 
@@ -24,7 +24,7 @@ function Home() {
   }
 
   const handleClickedArtwork = (artwork) => {
-    navigate(`/Details/${artwork.title.toLowerCase()}`, { state: { artwork } });
+    navigate(`/details/${artwork.title.toLowerCase()}`, { state: { artwork } });
   };
 
   return (
@@ -44,26 +44,8 @@ function Home() {
         </form>
       </div>
       <div className="artwork-wrapper">
-        {artworks.map((artwork) => (
-          <div
-            className="flex each-artwork"
-            key={artwork.id}
-          >
-            <div className="right-arrow">
-              <BsArrowRightCircle />
-            </div>
-            <p>{artwork.title}</p>
-            <p>{artwork.date_display}</p>
-            {/* <p>{artwork.place_of_origin}</p>
-            <p>{artwork.artist_display}</p>
-            <p>{artwork.dimensions}</p>
-            <p>{artwork.medium_display}</p>
-             */}
-          </div>
-        ))}
         {filterArtworks.map((artwork) => (
           <div
-            className="Artwork-card"
             key={artwork.id}
             onClick={() => { handleClickedArtwork(artwork); }}
             onKeyDown={(e) => {
@@ -75,31 +57,25 @@ function Home() {
             tabIndex={0}
           >
 
-            {/* <h2 className="symbol">{artwork.symbol}</h2>
-            <p className="change">
-              {artwork.percent_change_1h < 0 ? (
-                <>
-                  <FaChevronCircleLeft style={{ color: 'red' }} />
-                  <span style={{ color: 'red' }}>
-                    {Math.abs(artwork.percent_change_1h)}
-                    %
-                  </span>
-                </>
-              ) : (
-                <>
-                  <BsArrowRightCircle style={{ color: 'green' }} />
-                  <span style={{ color: 'green' }}>
-                    {artwork.percent_change_1h}
-                    %
-                  </span>
-                </>
-              )}
-            </p> */}
+            <div className="flex each-artwork">
+              <div className="right-arrow">
+                <button
+                  style={{ color: 'white' }}
+                  type="button"
+                  aria-label="Go back"
+                >
+                  <BsArrowRightCircle />
+                </button>
+              </div>
+
+              <p>{artwork.title}</p>
+              <p>{artwork.date_display}</p>
+            </div>
+
           </div>
         ))}
       </div>
     </>
-
   );
 }
 

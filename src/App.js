@@ -13,7 +13,7 @@ function App() {
           <Navgtn />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Details" element={<Details />} />
+            <Route path="/details/:name" element={<Details />} />
           </Routes>
         </div>
       </BrowserRouter>
