@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Render the Home Component 1`] = `
+Array [
+  <div
+    className="flex header"
+  >
+    <h3
+      className="title"
+    >
+      Art institute of Chicago
+    </h3>
+    <form
+      className="flex"
+    >
+      <input
+        className="search"
+        name="q"
+        onChange={[Function]}
+        placeholder="Search Artwork"
+        type="search"
+        value=""
+      />
+      <input
+        className="submt-search"
+        type="submit"
+      />
+    </form>
+  </div>,
+  <div
+    className="artwork-wrapper"
+  />,
+  ",",
+]
+`;
