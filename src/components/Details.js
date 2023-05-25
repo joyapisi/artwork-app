@@ -37,23 +37,23 @@ const Details = () => {
         <h3 className="details-title">Artworks Details</h3>
         <div className="stats">
           <p className="flex date_display">
-            <ImFilePicture />
-            Date Display:
+            <ImFilePicture size={25} />
+            Date:
             {artwork.date_display}
           </p>
 
           <p className="flex place_of_origin">
-            <MdOutlinePlace />
+            <MdOutlinePlace size={25} style={{ backgroundColor: 'transparent' }} />
             Place of Origin:
             {artwork.place_of_origin}
           </p>
           <p className="flex dimensions">
-            <GiResize />
+            <GiResize size={25} />
             Dimensions:
             {artwork.dimensions}
           </p>
           <p className="flex medium_used">
-            <FaPaintBrush />
+            <FaPaintBrush size={25} />
             Medium Used:
             {artwork.medium_display}
           </p>
