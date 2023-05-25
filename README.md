@@ -65,8 +65,11 @@ You will learn how to use React and Redux. It also follows <a href="https://www.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# [🚀 Live Demo]<a name=#live-demo></a>
-[View Live Demo](https://my-space-travellers-hub.netlify.app/)
+## [🚀 Live_Demo]<a name=#live-demo></a>
+[View Live Demo](https://joys-artwork-app.netlify.app/)
+
+## [🎥 Video Explanation]<a name=#video_explanation></a>
+[View Video Explanation](https://www.loom.com/share/74dfa0c9829b4fa28a69fa88356e6ba0)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -93,7 +96,7 @@ Clone this repository to your desired folder:
   git clone[(https://github.com/joyapisi/space-traveler-hub.git)]
 ```
 ## Understand Set Up Requirements
-Since this code is using webpack, you will run `npm start` in your terminal to run it instead of using the live server. 
+Since this code is using webpack, you will run `npm start` in your terminal to run it instead of opening it with the live server. 
 
 ## Understand Set Up Requirements
 
@@ -116,86 +119,19 @@ A linter is a tool to help you improve your code. You can learn more about Linte
 4. Having an objective and measurable assessment of code quality.
 5. Having fewer discussions about code style and aesthetic choices during code reviews.
 
-# Install React and Linters <a name="install"></a>
+#  Create Your React App and Install Linters <a name="install"></a>
 
-## Install React <a name="react-installation"></a>
+## Create Your React App <a name="react-installation"></a>
 
-- Follow the instructions <a href="https://create-react-app.dev/">here</a> to set up react JS.
-
-### Steps to Install React
-
-- In the link above, go through these topics in order:
+- Run this insde your project's root directory
+```
+npx create-react-app . 
+```
+- For further installaton instructions use <a href="https://create-react-app.dev/">this</a> link to set up your react app by following these topics in order:
 <ul>
   <li><a href="https://create-react-app.dev/docs/getting-started">Getting Started</a></li>
   <li><a href="https://create-react-app.dev/docs/folder-structure">Folder Structure</a></li>
 </ul>
-
-In your project directory terminal, you can run these commands:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
 
 ## Install Linters <a name="linter-installation"></a>
 
@@ -207,7 +143,7 @@ There are many ways you can integrate a linter in your workflow:
 -GitHub Actions
 -GitHub apps
 
-### Steps to Install Linters
+### Steps to Install Linters for this project
 
 **Note:** The npm package manager is going to create a node_modules directory to install all of your dependencies. You shouldn't commit that directory. To avoid that, you can create a .gitignore file and add node_modules to it:
 
@@ -215,11 +151,8 @@ There are many ways you can integrate a linter in your workflow:
 
 node_modules/
 
-**NOTE:** If you are using Windows, make sure you initialize npm to create `package.json` file.
+**NOTE:** If you are using Windows, you don't have to initialize npm by runnng `npm init -y` to create a `package.json` file since Create React App already set one up for you.
 
-```
-npm init -y
-```
 _how to use npm: (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)._
 
 ## Install ESLint
@@ -230,14 +163,11 @@ _how to use npm: (https://docs.npmjs.com/downloading-and-installing-node-js-and-
 npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x
 ```  
 
-2. Copy [.hintrc](./.eslintrc.json) and [.babelrc](./.babelrc)to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-   - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run
-   ```
+2. Run
+  ```
    npx eslint "**/*.{js,jsx}"
    ```
-on the root of your directory of your project to fix linter errors.
+on the root of your directory of your project whenever you want to fix linter errors.
 
 
 ### [Stylelint](https://stylelint.io/) <a name="stylelint-installation"></a>
@@ -248,15 +178,11 @@ A mighty, modern linter that helps you avoid errors and enforce conventions in y
 
 `npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x`
 
-2. Copy [.stylelintrc.json](./.stylelintrc.json) to the root directory of your project.
-
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-
-If you think that change is necessary - open a Pull Request in this repository and let your code reviewer know about it. 4. Run `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-
-5. Fix linter errors.
-
-6. **IMPORTANT NOTE:** feel free to research auto-correct options for Stylelint if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+2. To Fix style(css) linter errors run
+   ```
+     npx stylelint "**/*.{css,scss}" 
+    ```
+6. **IMPORTANT NOTE:** feel free to research auto-correct options for Stylelint such as usng `npx stylelint "**/*.{css,scss}"  --fix ` if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -268,22 +194,15 @@ If you think that change is necessary - open a Pull Request in this repository a
 - Twitter: (https://twitter.com/joyapisi)
 - LinkedIn: (https://linkedin.com/in/joy-phoebe-00b80a13a)
 
-## 🤝 Contributing <a name="contributing"></a>
-
-👤 **Mucha Julius**
-
-- GitHub: (https://github.com/mnaibei)
-- LinkedIn: (https://www.linkedin.com/in/mucha-julius/)
-
 ## 🔭 Future Features <a name="future-features"></a>
 
-# **[Feature-1]**
+### **[Feature-1]**
 
 - Add more styling (aesthetics)
 
-# **[Feature-2]**
+### **[Feature-2]**
 
-- Add mobile version
+- Add destop version
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -316,6 +235,9 @@ I'm thankful to Microverse for providing a study platform which guided me throug
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.txt) licensed.
+
+## © Attribution <a name="attribution"></a>
+Original design idea by [Nelson Sakwa on Behance.](https://www.behance.net/sakwadesignstudio)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
