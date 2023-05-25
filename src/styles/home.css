@@ -40,15 +40,19 @@
   font-size: 12px;
 }
 
-form input, input::placeholder, .each-artwork, .title, .artwork-wrapper-title {
+form input,
+input::placeholder,
+.each-artwork,
+.title,
+.artwork-wrapper-title {
   color: #fff;
 }
 
-form input, .date-dsp {
+form input,
+.date-dsp {
   font-size: 12px;
   font-weight: lighter;
 }
-
 
 .header form .search {
   width: 120px;
@@ -75,10 +79,6 @@ form input, .date-dsp {
   color: #fff;
 }
 
-.artwork-wrapper {
-  font-weight: lighter;
-}
-
 .artwork-wrapper-title {
   background-color: rgba(23, 76, 173, 0.699);
   padding: 5px 0;
@@ -88,7 +88,7 @@ form input, .date-dsp {
 .artwork-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .artwork-wrapper:nth-child(even) {
@@ -105,7 +105,7 @@ form input, .date-dsp {
 
 .right-arrow {
   align-self: flex-end;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .right-arrow button {
