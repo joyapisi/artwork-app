@@ -22,7 +22,6 @@ const Details = () => {
       >
         <div
           className="goback-arrow"
-          // size={2}
           onClick={() => { handleBackArrow(); }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -37,10 +36,10 @@ const Details = () => {
 
         <h3 className="details-title">Artworks Details</h3>
         <div className="stats">
-          <p className="flex artist_display">
+          <p className="flex date_display">
             <ImFilePicture />
-            Medium Used:
-            {artwork.artist_display}
+            Date Display:
+            {artwork.date_display}
           </p>
 
           <p className="flex place_of_origin">

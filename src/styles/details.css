@@ -38,6 +38,10 @@
   flex-wrap: wrap;
 }
 
+.stats :nth-child(even) {
+  background-color: rgba(24, 91, 216, 0.699);
+}
+
 .stats p {
   flex-direction: column;
   align-items: center;
@@ -47,6 +51,3 @@
   gap: 9px;
 }
 
-.stats :nth-child(even) {
-  background-color: rgba(24, 91, 216, 0.699);
-}
