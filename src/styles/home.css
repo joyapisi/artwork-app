@@ -24,18 +24,18 @@
 }
 
 .header h3 {
-  width: 200px;
+  padding: 10px;
 }
 
 .header form {
   border-radius: 1rem;
   border: 1px solid #fff;
-  background-color: gray;
-  padding: 3px;
+  /* background-color: gray; */
+  padding: 3px 5px;
   font-size: 12px;
 }
 
-form input, input::placeholder, .each-artwork {
+form input, input::placeholder, .each-artwork, .header h3{
   color: #fff;
 }
 
@@ -45,23 +45,25 @@ form input, input::placeholder, .each-artwork {
 
 .header form .submt-search {
   width: 60px;
+  border-left: 1px solid #fff;
 }
 
 .artwork-wrapper {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
-  /* flex-wrap: wrap; */
-  gap: 10px;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+  /* padding: 10px; */
+  /* width: 100%; */
 }
 
-.tbody :nth-child(odd) {
-  background-color: rgba(14, 67, 165, 0.699);
+.each-artwork:nth-child(odd) {
+  background-color: rgba(24, 91, 216, 0.699);
 }
 
 .each-artwork {
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 25px;
   gap: 10px;
   text-align: right;
   height: 170px;

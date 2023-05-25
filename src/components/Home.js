@@ -43,38 +43,36 @@ function Home() {
           <input className="submt-search" type="submit" />
         </form>
       </div>
-      <table className="artwork-wrapper">
-        <tbody>
-          {filterArtworks.map((artwork) => (
-            <tr
-              className="flex each-artwork"
-              key={artwork.id}
-              onClick={() => {
+      <div className="artwork-wrapper">
+        {filterArtworks.map((artwork) => (
+          <div
+            className="flex each-artwork"
+            key={artwork.id}
+            onClick={() => {
+              handleClickedArtwork(artwork);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
                 handleClickedArtwork(artwork);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  handleClickedArtwork(artwork);
-                }
-              }}
-              role="button"
-              tabIndex={0}
-            >
-              <div className="right-arrow">
-                <button
-                  style={{ color: 'white' }}
-                  type="button"
-                  aria-label="Go back"
-                >
-                  <BsArrowRightCircle />
-                </button>
-              </div>
-              <p>{artwork.title}</p>
-              <p>{artwork.date_display}</p>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              }
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="right-arrow">
+              <button
+                style={{ color: 'white' }}
+                type="button"
+                aria-label="Go back"
+              >
+                <BsArrowRightCircle />
+              </button>
+            </div>
+            <p>{artwork.title}</p>
+            <p>{artwork.date_display}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
