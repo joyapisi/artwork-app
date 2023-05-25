@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
+import { AiFillPicture } from 'react-icons/ai';
 import { fetchArtworks } from '../redux/home/homeSlice';
 import '../styles/home.css';
 
@@ -29,8 +30,11 @@ function Home() {
 
   return (
     <>
+      <h3 className=" flex title">
+        <AiFillPicture />
+        Art institute of Chicago
+      </h3>
       <div className="flex header">
-        <h3 className="title">Art institute of Chicago</h3>
         <form className="flex">
           <input
             className="search"
@@ -43,6 +47,10 @@ function Home() {
           <input className="submt-search" type="submit" />
         </form>
       </div>
+
+      <div className="flex art-header" />
+      <h5 className="artwork-wrapper-title">Art by Title</h5>
+
       <div className="artwork-wrapper">
         {filterArtworks.map((artwork) => (
           <div
@@ -68,8 +76,8 @@ function Home() {
                 <BsArrowRightCircle />
               </button>
             </div>
-            <p>{artwork.title}</p>
-            <p>{artwork.date_display}</p>
+            <h3>{artwork.title}</h3>
+            <p className="date-dsp">{artwork.date_display}</p>
           </div>
         ))}
       </div>
