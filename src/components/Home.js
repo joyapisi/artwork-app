@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
+import { FaChevronCircleLeft } from 'react-icons/fa';
 import { fetchArtworks } from '../redux/home/homeSlice';
 import '../styles/home.css';
 
@@ -29,33 +30,28 @@ function Home() {
 
   return (
     <>
-      <div className="flex header">
-        <h3 className="title">Art institute of Chicago</h3>
-        <form className="flex">
+      <h1 className="title">Art institute of Chicago</h1>
+      <form className="flex logo-header">
+        <label htmlFor="search-artwork">
           <input
-            className="search"
             type="search"
             value={searchArtwork}
             name="q"
             placeholder="Search Artwork"
             onChange={(e) => setSearchArtwork(e.target.value)}
           />
-          <input className="submt-search" type="submit" />
-        </form>
-      </div>
-      <div className="artwork-wrapper">
+          <input type="submit" />
+        </label>
+      </form>
+
+      <div>
         {artworks.map((artwork) => (
-          <div className="flex each-artwork" key={artwork.id}>
-            <div className="right-arrow">
-              <BsArrowRightCircle />
-            </div>
-            <p>{artwork.title}</p>
-            <p>{artwork.date_display}</p>
-            {/* <p>{artwork.place_of_origin}</p>
-            <p>{artwork.artist_display}</p>
-            <p>{artwork.dimensions}</p>
-            <p>{artwork.medium_display}</p>
-             */}
+          <div key={artwork.id}>
+            <h2>{artwork.title}</h2>
+            <h2>{artwork.artist_display}</h2>
+            <h2>{artwork.dimensions}</h2>
+            <h2>{artwork.date_display}</h2>
+            <h2>{artwork.place_of_origin}</h2>
           </div>
         ))}
         {filterArtworks.map((artwork) => (
@@ -72,7 +68,7 @@ function Home() {
             tabIndex={0}
           >
 
-            {/* <h2 className="symbol">{artwork.symbol}</h2>
+            <h2 className="symbol">{artwork.symbol}</h2>
             <p className="change">
               {artwork.percent_change_1h < 0 ? (
                 <>
@@ -91,7 +87,7 @@ function Home() {
                   </span>
                 </>
               )}
-            </p> */}
+            </p>
           </div>
         ))}
       </div>
