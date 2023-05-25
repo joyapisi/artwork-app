@@ -8,12 +8,71 @@
   font-family: 'Roboto', sans-serif;
   margin: 0;
   border: 0;
+  background-color: rgba(22, 81, 190, 0.699);
 }
 
 .flex {
   display: flex;
 }
 
-nav {
+.header {
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+}
+
+.header h3 {
+  width: 200px;
+}
+
+.header form {
+  border-radius: 1rem;
+  border: 1px solid #fff;
+  background-color: gray;
+  padding: 3px;
+  font-size: 12px;
+}
+
+form input, input::placeholder, .each-artwork {
+  color: #fff;
+}
+
+.header form .search {
+  width: 120px;
+}
+
+.header form .submt-search {
+  width: 60px;
+}
+
+.artwork-wrapper {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  /* flex-wrap: wrap; */
+  gap: 10px;
+  padding: 10px;
+}
+
+.tbody :nth-child(odd) {
+  background-color: rgba(14, 67, 165, 0.699);
+}
+
+.each-artwork {
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  text-align: right;
+  height: 170px;
+}
+
+.right-arrow {
+  align-self: flex-end;
+  margin-bottom: 20px;
+  
+}
+
+.right-arrow button {
+  background-color: transparent;
 }

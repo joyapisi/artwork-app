@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
-import { FaChevronCircleLeft } from 'react-icons/fa';
 import { fetchArtworks } from '../redux/home/homeSlice';
 import '../styles/home.css';
 
@@ -16,7 +15,7 @@ function Home() {
     dispatch(fetchArtworks());
   }, [dispatch]);
 
-  const filterArtworks = artworks.filter((artwork) => artwork.artist_display
+  const filterArtworks = artworks.filter((artwork) => artwork.title
     .toLowerCase()
     .includes(searchArtwork.toLocaleLowerCase()));
 
@@ -25,74 +24,58 @@ function Home() {
   }
 
   const handleClickedArtwork = (artwork) => {
-    navigate(`/Details/${artwork.title.toLowerCase()}`, { state: { artwork } });
+    navigate(`/details/${artwork.title.toLowerCase()}`, { state: { artwork } });
   };
 
   return (
     <>
-      <h1 className="title">Art institute of Chicago</h1>
-      <form className="flex logo-header">
-        <label htmlFor="search-artwork">
+      <div className="flex header">
+        <h3 className="title">Art institute of Chicago</h3>
+        <form className="flex">
           <input
+            className="search"
             type="search"
             value={searchArtwork}
             name="q"
             placeholder="Search Artwork"
             onChange={(e) => setSearchArtwork(e.target.value)}
           />
-          <input type="submit" />
-        </label>
-      </form>
-
-      <div>
-        {artworks.map((artwork) => (
-          <div key={artwork.id}>
-            <h2>{artwork.title}</h2>
-            <h2>{artwork.artist_display}</h2>
-            <h2>{artwork.dimensions}</h2>
-            <h2>{artwork.date_display}</h2>
-            <h2>{artwork.place_of_origin}</h2>
-          </div>
-        ))}
-        {filterArtworks.map((artwork) => (
-          <div
-            className="Artwork-card"
-            key={artwork.id}
-            onClick={() => { handleClickedArtwork(artwork); }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                handleClickedArtwork(artwork);
-              }
-            }}
-            role="button"
-            tabIndex={0}
-          >
-
-            <h2 className="symbol">{artwork.symbol}</h2>
-            <p className="change">
-              {artwork.percent_change_1h < 0 ? (
-                <>
-                  <FaChevronCircleLeft style={{ color: 'red' }} />
-                  <span style={{ color: 'red' }}>
-                    {Math.abs(artwork.percent_change_1h)}
-                    %
-                  </span>
-                </>
-              ) : (
-                <>
-                  <BsArrowRightCircle style={{ color: 'green' }} />
-                  <span style={{ color: 'green' }}>
-                    {artwork.percent_change_1h}
-                    %
-                  </span>
-                </>
-              )}
-            </p>
-          </div>
-        ))}
+          <input className="submt-search" type="submit" />
+        </form>
       </div>
+      <table className="artwork-wrapper">
+        <tbody>
+          {filterArtworks.map((artwork) => (
+            <tr
+              className="flex each-artwork"
+              key={artwork.id}
+              onClick={() => {
+                handleClickedArtwork(artwork);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleClickedArtwork(artwork);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="right-arrow">
+                <button
+                  style={{ color: 'white' }}
+                  type="button"
+                  aria-label="Go back"
+                >
+                  <BsArrowRightCircle />
+                </button>
+              </div>
+              <p>{artwork.title}</p>
+              <p>{artwork.date_display}</p>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
-
   );
 }
 
