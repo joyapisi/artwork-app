@@ -15,14 +15,6 @@
   display: flex;
 }
 
-.header {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 5px;
-}
-
 .title {
   align-items: center;
   justify-content: center;
@@ -33,19 +25,37 @@
   letter-spacing: normal;
 }
 
+
+.header {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
 .header form {
   border-radius: 1rem;
-  border: 1px solid #fff;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5); */
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
+  /* backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border: 1px solid #3d3d3d; */
+  background-color: #fff;
   padding: 3px 5px;
   font-size: 12px;
 }
 
 form input,
-input::placeholder,
 .each-artwork,
 .title,
 .artwork-wrapper-title {
   color: #fff;
+}
+
+input::placeholder, .submt-search {
+  color: #a0a0a0;
 }
 
 form input,
@@ -56,11 +66,13 @@ form input,
 
 .header form .search {
   width: 120px;
+  background-color: #fff;
 }
 
 .header form .submt-search {
   width: 60px;
-  border-left: 1px solid #fff;
+  border-left: 1px solid #a0a0a0;
+  background-color: #fff;
 }
 
 .art-header {
